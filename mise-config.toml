@@ -1,6 +1,7 @@
 [tools]
 "cargo:cargo-nextest" = "0.9.50"
 "cargo:mdbook" = "0.4.37"
+bazelisk = "1.25.0"
 flutter = "3.22.2"
 gcloud = "latest"
 java = "11"
