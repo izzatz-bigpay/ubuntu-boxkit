@@ -61,6 +61,13 @@ RUN wget -q https://mise.jdx.dev/mise-latest-linux-x64 && \
 COPY mise-config.toml /etc/mise/config.toml
 RUN echo 'eval "$(/usr/local/bin/mise activate bash)"' >> /etc/profile
 
+# Install zed editor
+RUN wget https://zed.dev/api/releases/stable/latest/zed-linux-x86_64.tar.gz \
+    && tar -m --no-overwrite-dir -xzf zed-linux-x86_64.tar.gz || true \
+    && rm zed-linux-x86_64.tar.gz \
+    && mv zed.app /opt/. \
+    && ln -fs /opt/zed.app/bin/zed /usr/local/bin/zed
+
 # Activate direnv
 RUN echo 'eval "$(direnv hook bash)"' >> /etc/profile
 
